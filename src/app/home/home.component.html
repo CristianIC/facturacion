@@ -1,0 +1,25 @@
+<h1>Buscar persona por codigo</h1>
+<div>
+  <label for="codigo">Codigo: </label>
+  <input type="text" name="codigo" #codigo>
+  <button (click) = "buscarPersona(codigo.value);">Buscar</button>
+</div>
+<div>
+  <strong>Codigo: </strong> {{per.id}}
+</div>
+<div>
+  <strong>Nombre: </strong> {{per.name}}
+</div>
+<div>
+  <strong>Correo: </strong> {{per.email}}
+</div>
+
+<h1>Lista de personas</h1>
+<div>
+  <ul>
+    <li *ngFor="let person of persons">
+      {{person.id}}: {{person.name}} - {{person.email}}
+      <button (click) = "eliminarPersona(person.id);" >Eliminar</button>
+    </li>
+  </ul>
+</div>
