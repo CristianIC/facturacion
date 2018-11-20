@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
 
   public per:any;
 
+  public resp = "";
+
   constructor(private _person: PersonService) {
   	this.per = "";
   }
@@ -40,7 +42,11 @@ export class HomeComponent implements OnInit {
   buscarPersona(cod){
     this._person.getPersonById(cod).subscribe(
     	result => {
-    		this.per = result;
+    		if(result == null){
+    			this.resp = "Persona no encontrada o no existe";
+    		}else {
+    			this.per = result;
+    		}
     	},
     	error => {
     		console.log(error);
