@@ -30,7 +30,10 @@ export class HomeComponent implements OnInit {
       },
       error => {
         console.log(error);
-      }
+      },
+  		() => {
+  			console.log('Observer: Notificacion al completar la peticion.');
+  	  }
     );
   }
 
@@ -53,6 +56,9 @@ export class HomeComponent implements OnInit {
   		},
   		error => {
   			console.log(error);
+  		},
+  		() => {
+  			console.log('Observer got a complete notification');
   		}
   	);
   }
